@@ -1,6 +1,12 @@
 local M = {}
 
 function M.setup()
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>Dh",
+		[[:lua require('rest-console-buffer').create_temp_buffer()<CR>]],
+		{ noremap = true, silent = true }
+	)
 	vim.api.nvim_create_user_command("RESTBuffer", function()
 		M.create_temp_buffer()
 	end, { desc = "Creates new temporary Buffer with .rest extension" })
