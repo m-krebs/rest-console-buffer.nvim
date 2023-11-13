@@ -5,7 +5,7 @@ function M.setup()
 		"n",
 		"<leader>Dh",
 		[[:lua require('rest-console-buffer').create_temp_buffer()<CR>]],
-		{ noremap = true, silent = true }
+		{ noremap = true, silent = true, desc = "Create REST console buffer" }
 	)
 	vim.api.nvim_create_user_command("RESTBuffer", function()
 		M.create_temp_buffer()
