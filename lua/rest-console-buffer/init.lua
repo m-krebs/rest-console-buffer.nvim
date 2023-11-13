@@ -1,4 +1,12 @@
+local This = require("rest-console-buffer")
+
 local M = {}
+
+function M.setup()
+	vim.api.nvim_create_user_command("RestBuffer", function()
+		This.init.create_temp_buffer()
+	end, { desc = "Creates new temporary Buffer with .rest extension" })
+end
 
 function M.create_temp_buffer()
 	local default_text = [=[
